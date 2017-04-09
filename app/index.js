@@ -1,19 +1,31 @@
 import showdown from 'showdown';
+import templates from './templates';
 
-function component () {
-  var element = document.createElement('div');
+const posts = [
+    {
+        title: 'Benefits of the Article tag',
+        slug: 'benefits-of-article',
+        filename: 'benefits-of-article.md',
+        pub_date: 'September 11, 2014'
+    }
+]
 
-  const converter = new showdown.Converter();
+var headerElem = document.querySelector('.header');
+headerElem.innerHTML = templates.header();
 
-  fetch("/public/posts/benefits-of-article.md")
-    .then(function(res) {
-        return res.text();
-    })
-    .then(function(data) {
-        element.innerHTML = converter.makeHtml(data);
-    })
+document.querySelector('.footer').innerHTML = templates.footer();
 
-  return element;
+var slug = document.location.hash.substr(1);
+var post = posts.find((p) => p.slug === slug);
+
+if (post) {
+    fetch(`/public/posts/${post.filename}`)
+        .then(res => res.text())
+        .then(markdown => {
+            const converter = new showdown.Converter();
+            post.body = converter.makeHtml(markdown);
+
+            document.querySelector('.body').innerHTML = templates.post(post);
+        });
 }
 
-document.body.appendChild(component());
