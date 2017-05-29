@@ -1,3 +1,18 @@
+import { $each, $if } from './helpers';
+import posts from '../posts';
+
+function archive() {
+    return `
+        <h5>Archive</h5>
+        <hr />
+        ${$each(posts, post => `
+            <div class="headline">
+                <a href="/blog/${post.slug}">${post.title}</a>
+            </div>
+        `)}
+    `
+}
+
 export default function(post) {
     return `
         <section>
@@ -27,8 +42,7 @@ export default function(post) {
                 </ul>
             </section>
             <section>
-                <h5>Archive</h5>
-                <hr />
+                ${archive()}
             </section>
         </aside>
     `

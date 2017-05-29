@@ -1,17 +1,5 @@
 import post from './post';
-
-function $each(list, callback) {
-    return list.map(callback).join('');
-}
-
-function $if(condition, callback, elseCallback) {
-    if (condition)
-        return callback();
-    else if (elseCallback)
-        return elseCallback();
-        
-    return '';
-}
+import { $each, $if } from './helpers';
 
 export default {
     header: () => {
