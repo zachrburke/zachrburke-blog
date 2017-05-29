@@ -1,0 +1,57 @@
+body {
+    font-family: sans-serif;
+    font-size: 20px;
+    padding: 20px;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.body > section {  
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 0.5s ease-in 0s 1 slideInFromLeft;
+}
+
+a {
+    text-decoration: none;
+    color: lightcoral;
+}
+
+h5 {
+    color: #c04040;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid lightgray;
+}
+
+pre {
+    overflow: scroll;
+    background: lavender;
+    padding: 10px;
+}
+
+.headline {
+    padding: 5px 0;
+}
+
+@media screen and (min-width: 1024px) {
+    .body {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .body > aside {
+        margin-right: 20px;
+        width: 25%;
+    }
+    .body > section {
+        width: 75%;
+    }
+}

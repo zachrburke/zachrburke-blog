@@ -9,5 +9,13 @@ module.exports = {
   devServer: {
     https: true,
     historyApiFallback: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
+    ]
   }
 };

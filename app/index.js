@@ -1,16 +1,12 @@
 import showdown from 'showdown';
 import templates from './templates';
 import posts from './posts';
-
-var headerElem = document.querySelector('.header');
-headerElem.innerHTML = templates.header();
-
-document.querySelector('.footer').innerHTML = templates.footer();
+import styles from './index.css';
 
 var slug = document.location.pathname.replace('/blog/', '');
 var post = posts.find((p) => p.slug === slug);
 
-console.log(slug);
+post = slug === '/' ? posts[0] : post;
 
 if (post) {
     fetch(`/public/posts/${post.filename}`)

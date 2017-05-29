@@ -17,7 +17,7 @@ export default function(post) {
     return `
         <section>
             <div class='metadata'>
-                <h4>${post.title}</h4>
+                <h1>${post.title}</h1>
                 <small>Published ${post.pub_date}</small>
             </div>
             <article>${post.body}</article>
