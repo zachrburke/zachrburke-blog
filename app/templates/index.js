@@ -1,5 +1,11 @@
 import { $each, $if } from './helpers';
 
+export function applyTo(query) {
+    return function(template) {
+        document.querySelector(query).innerHTML = template;
+    }
+}
+
 export default {
     post: function(post) {
         return `
