@@ -3,6 +3,8 @@ import templates from './templates';
 import posts from './posts';
 import styles from './index.css';
 
+document.querySelector('main section.archive').innerHTML = templates.archive(posts);
+
 var slug = document.location.pathname.replace('/blog/', '');
 var post = posts.find((p) => p.slug === slug);
 
@@ -15,7 +17,7 @@ if (post) {
             const converter = new showdown.Converter();
             post.body = converter.makeHtml(markdown);
 
-            document.querySelector('.body').innerHTML = templates.post(post);
+            document.querySelector('main section.post-content').innerHTML = templates.post(post);
         });
 }
 

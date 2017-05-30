@@ -1,21 +1,29 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     padding: 20px;
+    color: #494949;
 }
 
 @keyframes slideInFromLeft {
   0% {
     opacity: 0;
+    transform: translateY(-10px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.body > section {  
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+main > section {  
   /* This section calls the slideInFromLeft animation we defined above */
-  animation: 0.5s ease-in 0s 1 slideInFromLeft;
+  animation: 0.25s ease-in 0s 1 slideInFromLeft;
 }
 
 a {
@@ -23,8 +31,16 @@ a {
     color: lightcoral;
 }
 
-h5 {
+h1, h5 {
     color: #c04040;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h3 {
+    margin: 30px 0;
 }
 
 hr {
@@ -43,15 +59,15 @@ pre {
 }
 
 @media screen and (min-width: 1024px) {
-    .body {
+    main {
         display: flex;
         flex-direction: row-reverse;
     }
-    .body > aside {
+    main > aside {
         margin-right: 20px;
         width: 25%;
     }
-    .body > section {
+    main > section {
         width: 75%;
     }
 }

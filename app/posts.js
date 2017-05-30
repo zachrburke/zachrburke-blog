@@ -21,12 +21,6 @@ export default [
 		languages: [ 'cs', 'lua' ],
 	},
 	{
-		title: "Writer's block is a thing",
-		slug: "writers-block",
-		filename: "writers-block.md",
-		pub_date: "March 25, 2014",
-	},
-	{
 		title: "Why aren't there more ways to represent data?",
 		slug: "data-representation",
 		filename: "data-representation.md",

@@ -4,7 +4,8 @@
   "description": "Version 2 of my personal blog for http://zachrburke.com",
   "main": "index.js",
   "scripts": {
-    "pack": "webpack-dev-server --open"
+    "pack": "webpack-dev-server --open",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
