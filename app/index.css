@@ -5,7 +5,7 @@ body {
     color: #494949;
 }
 
-@keyframes slideInFromLeft {
+@keyframes slideInFromTop {
   0% {
     opacity: 0;
     transform: translateY(-10px);
@@ -22,8 +22,7 @@ main {
 }
 
 main > section {  
-  /* This section calls the slideInFromLeft animation we defined above */
-  animation: 0.25s ease-in 0s 1 slideInFromLeft;
+    animation: 0.25s ease-in 0s 1 slideInFromTop;
 }
 
 a {
@@ -64,8 +63,9 @@ pre {
         flex-direction: row-reverse;
     }
     main > aside {
-        margin-right: 20px;
+        padding-right: 20px;
         width: 25%;
+        box-sizing: border-box;
     }
     main > section {
         width: 75%;
