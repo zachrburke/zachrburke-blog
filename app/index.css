@@ -3,6 +3,7 @@ body {
     font-size: 20px;
     padding: 20px;
     color: #494949;
+    overflow-y: scroll;
 }
 
 @keyframes slideInFromTop {
@@ -23,6 +24,10 @@ main {
 
 main > section {  
     animation: 0.25s ease-in 0s 1 slideInFromTop;
+}
+
+main > section img {
+    width: 100%;
 }
 
 a {

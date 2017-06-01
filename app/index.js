@@ -11,7 +11,7 @@ var post = posts.find((p) => p.slug === slug);
 post = slug === '/' ? posts[0] : post;
 
 if (post) {
-    fetch(`/public/posts/${post.filename}`)
+    fetch(`/content/posts/${post.filename}`)
         .then(res => res.text())
         .then(markdown => {
             const converter = new showdown.Converter();
