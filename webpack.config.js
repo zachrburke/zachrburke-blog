@@ -10,7 +10,7 @@ module.exports = {
   devServer: {
     https: true,
     historyApiFallback: true,
-    publicPath: "/dist/"
+    publicPath: "/"
   },
   module: {
     rules: [
