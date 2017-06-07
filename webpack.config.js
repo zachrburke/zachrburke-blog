@@ -33,7 +33,8 @@ module.exports = {
   plugins: [
       new CopyWebpackPlugin([
           { from: 'content', to: 'content/' },
-          { from: 'index.html' }
+          { from: 'index.html' },
+          { from: '_redirects' }
       ])
   ]
 };
