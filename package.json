@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pack": "webpack-dev-server --open",
-    "build": "webpack"
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/zach-binary/zachrburke-blog#readme",
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
     "css-loader": "^0.28.3",
     "style-loader": "^0.18.1",
     "webpack": "^2.3.3",
