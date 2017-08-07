@@ -1,5 +1,8 @@
 var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractCSS = new ExtractTextPlugin('stylesheets/[name]-one.css');
 
 module.exports = {
   entry: './app/index.js',
@@ -16,7 +19,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
       {
         test: /\.js$/,
@@ -35,6 +41,8 @@ module.exports = {
           { from: 'content', to: 'content/' },
           { from: 'index.html' },
           { from: '_redirects' }
-      ])
+      ]),
+
+      new ExtractTextPlugin('static/styles.css')
   ]
 };
