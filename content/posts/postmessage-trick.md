@@ -1,6 +1,6 @@
 Are you working on a single page application that needs to be embedded in an iframe?  Did you have to give control of that iframe back to the parent because it too was a single page application?
 
-First off, I'm sorry, but there's good news!  You can use window.parent.postMessage to send messages up to any pages embedding your application.  The parent page can subscribe to that message and take whatever action it needs to take after a user has completed something in your embedded application.
+You can use window.parent.postMessage to send messages up to any pages embedding your application.  The parent page can subscribe to that message and take whatever action it needs to take after a user has completed something in your embedded application.
 
 The nice thing about this is it makes our application more generic, meaning it won't need to change because a new client wants to consume it using an iframe!
 

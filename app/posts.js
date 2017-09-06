@@ -1,4 +1,11 @@
 export default [
+	{
+		title: "Making embeds more generic with postMessage",
+		slug: "postmessage-trick",
+		filename: "postmessage-trick.md",
+		pub_date: "September 6, 2017",
+		languages: [ 'javascript', 'js' ]
+	},
     {
 		title: "Let's Make Our Sitemap Dynamic in Lapis",
 		slug: "sitemap-xml",
