@@ -1,4 +1,4 @@
-export default [
+module.exports = [
 	{
 		title: "Making embeds more generic with postMessage",
 		slug: "postmessage-trick",
