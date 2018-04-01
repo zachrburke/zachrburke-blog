@@ -1,7 +1,7 @@
 import showdown from 'showdown';
 import templates, { applyTo } from './templates';
 import posts from './posts';
-import styles from './index.css';
+import styles from './index.css'; 
 
 applyTo('main section.archive')(templates.archive(posts));
 
