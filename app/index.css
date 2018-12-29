@@ -79,7 +79,7 @@ hr {
 }
 
 pre {
-    overflow: scroll;
+    overflow: auto;
     background: lavender;
     padding: 10px;
 }
