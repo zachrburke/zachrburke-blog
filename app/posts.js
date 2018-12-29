@@ -1,4 +1,4 @@
-export default [
+module.exports = [
 	{
 		title: "Making embeds more generic with postMessage",
 		slug: "postmessage-trick",
@@ -6,7 +6,14 @@ export default [
 		pub_date: "September 6, 2017",
 		languages: [ 'javascript', 'js' ]
 	},
-    {
+	{
+		title: "I wrote a twitter bot in Clojure",
+		slug: "learning-clojure",
+		filename: "learning-clojure.md",
+		pub_date: "March 7, 2015",
+		languages: [ 'clojure' ]
+	},
+    	{
 		title: "Let's Make Our Sitemap Dynamic in Lapis",
 		slug: "sitemap-xml",
 		filename: "sitemap-xml.md",
