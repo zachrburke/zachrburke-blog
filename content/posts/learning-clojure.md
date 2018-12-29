@@ -10,7 +10,7 @@ Like many other bots, I took inspiration from [horse_ebooks](https://twitter.com
 
 I let heroku take care of the scheduling by using the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler). Borrowing some logic from [Diego Basch's blog](http://diegobasch.com/markov-chains-in-clojure-part-2-scaling-up), I was able to do a crude Markov Chain implementation, allowing `zach_bebooks` to speak.
 
-![zach_bebooks](http://i.imgur.com/OcRFviQ.png)
+![zach_bebooks](https://i.imgur.com/OcRFviQ.png)
 
 For the random sentence generation to work, I needed data. I created a makeshift persistence engine by storing the data used to generate markov chains in an atom. I actually loaded the data that is used now by running the program inside a repl and calling `learn-files` on directories loaded with text files.  
 

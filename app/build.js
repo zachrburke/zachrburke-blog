@@ -27,11 +27,11 @@ const getPostWithBody = (post) => {
 
 applyTo('main section.archive')(templates.archive(posts));
 
-if (!fse.existsSync('./dist/')) {
-    fse.mkdirSync('./dist/');
-    fse.mkdirSync('./dist/blog/');
-    fse.mkdirSync('./dist/static');
-}
+fse.removeSync('./dist');
+
+fse.mkdirSync('./dist/');
+fse.mkdirSync('./dist/blog/');
+fse.mkdirSync('./dist/static');
 
 var latestPost = getPostWithBody(posts[0]);
 console.log('Creating home page using', latestPost.filename);
