@@ -37,6 +37,7 @@ var latestPost = getPostWithBody(posts[0]);
 console.log('Creating home page using', latestPost.filename);
 
 applyTo('main section.post-content')(templates.post(latestPost));
+$('title').text(latestPost.title);
 fse.writeFileSync('./dist/index.html', $.html());
 
 posts.forEach(post => {
@@ -44,10 +45,12 @@ posts.forEach(post => {
     console.log('Creating Page for', postWithBody.filename);
 
     applyTo('main section.post-content')(templates.post(postWithBody));
+    $('title').text(post.title);
     fse.writeFileSync('./dist/blog/' + postWithBody.filename, $.html());
 });
 
 fse.copySync('./content/', './dist/content');
+fse.copySync('./favicon.png', './dist/favicon.png');
 
 const css = fse.readFileSync('./app/index.css').toString();
 postcss([ autoprefixer ]).process(css).then(function (result) {
