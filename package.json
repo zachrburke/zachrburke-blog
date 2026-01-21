@@ -5,9 +5,9 @@
   "description": "Version 2 of my personal blog for http://zachrburke.com",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e js,ts,css,html,md --watch app --watch content --exec 'node --experimental-strip-types ./app/build.ts'",
+    "dev": "nodemon -e js,ts,css,html,md --watch app --watch content --exec 'npm run build'",
     "start": "http-server ./dist",
-    "build": "node ./app/build.ts"
+    "build": "node --experimental-strip-types ./app/build.ts"
   },
   "repository": {
     "type": "git",
