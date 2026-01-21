@@ -1,0 +1,100 @@
+export type Post = {
+  body?: any;
+  title: string,
+  slug: string,
+  filename: string,
+  pub_date: string,
+  languages?: string[],
+};
+
+export default [
+  {
+    title: "Making embeds more generic with postMessage",
+    slug: "postmessage-trick",
+    filename: "postmessage-trick.md",
+    pub_date: "September 6, 2017",
+    languages: [ 'javascript', 'js' ]
+  },
+  {
+    title: "I wrote a twitter bot in Clojure",
+    slug: "learning-clojure",
+    filename: "learning-clojure.md",
+    pub_date: "March 7, 2015",
+    languages: [ 'clojure' ]
+  },
+  {
+    title: "Let's Make Our Sitemap Dynamic in Lapis",
+    slug: "sitemap-xml",
+    filename: "sitemap-xml.md",
+    pub_date: "September 11, 2014",
+    languages: [ 'lua', 'coffeescript' ]
+  },
+  {
+    title: "Extending Sprite Kit classes with swift protocols",
+    slug: "swift-protocol-extension",
+    filename: "swift-protocol-extension.md",
+    pub_date: "June 13, 2014",
+    languages: [ 'coffeescript' ]
+  },
+  {
+    title: "Embedding lua in .NET",
+    slug: "lua-dot-net",
+    filename: "lua-dot-net.md",
+    pub_date: "May 30, 2014",
+    languages: [ 'cs', 'lua' ],
+  },
+  {
+    title: "Why aren't there more ways to represent data?",
+    slug: "data-representation",
+    filename: "data-representation.md",
+    pub_date: "March 23, 2014",
+  },
+  {
+    title: "Makin' changes, switchin' to Moot",
+    slug: "some-changes",
+    filename: "some-changes.md",
+    pub_date: "January 25, 2014",
+    languages: [ 'coffeescript', 'js' ],
+  },
+  {
+    title: "Cleaning up, moonc -t and Guard",
+    slug: "cleaning-up",
+    filename: "cleaner-workflow.md",
+    pub_date: "January 4, 2014",
+    languages: [ 'ruby' ],
+  },
+  {
+    title: "Benefits of the article Tag",
+    slug: "benefits-of-article",
+    filename: "benefits-of-article.md",
+    pub_date: "December 22, 2013",
+  },
+  {
+    title: "SOLR in Lua/Moonscript using SPORE",
+    slug: "solr-spore",
+    filename: "solr-spore.md",
+    pub_date: "November 14, 2013",
+    languages: [ 'js', 'lua' ],
+  },
+  {
+    title: "Blogging With Lapis, Deploying to Heroku",
+    slug: "deploying-to-heroku",
+    filename: "deploying-to-heroku.md",
+    pub_date: "October 29, 2013",
+    languages: [ 'lua' ],
+  },
+  {
+    title: "Blogging With Lapis, Implementation",
+    slug: "lapis-implementation",
+    filename: "lapis-implementation.md",
+    pub_date: "October 27, 2013",
+    languages: [ 'lua', 'coffeescript' ],
+  },
+  {
+    title: "Blogging With Lapis, Building Openresty",
+    slug: "building-openresty",
+    filename: "building-openresty.md",
+    pub_date: "October 22, 2013",
+  },
+] satisfies Post[]
+

@@ -1,104 +1,62 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
-    padding: 20px;
-    color: #494949;
-    overflow-y: scroll;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  padding: 20px;
+  color: #494949;
+  overflow-y: scroll;
+  --soft-red-text: #c04040;
 }
 
 html {
-    position: relative;
+  position: relative;
 }
 
-html::after {
-    content: "";
-    background-attachment: fixed;
-    background-image: url(/content/images/background.jpg);
-    background-size: 100% 50%;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-color: #f9bec2;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    z-index: -1;
-}
-
-@keyframes slideInFromTop {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-main {
-    max-width: 1024px;
-    margin: 0 auto;
-}
-
-main > section {  
-    animation: 0.25s ease-in 0s 1 slideInFromTop;
-}
-
-main > section img {
-    width: 100%;
+.layout {
+  max-width: 816px;
+  margin: 0 auto;
 }
 
 a {
-    text-decoration: none;
-    color: #494949;
+  text-decoration: none;
+  color: var(--soft-red-text);
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 h1, h3, h3 a, h2, h5 {
-    color: #c04040;
+  color: var(--soft-red-text);
 }
 
 h5 {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 h3 {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 hr {
-    border: none;
-    border-top: 1px solid lightgray;
+  border: none;
+  border-top: 1px solid lightgray;
 }
 
-pre {
-    overflow: auto;
-    background: lavender;
-    padding: 10px;
+.post pre {
+  overflow: auto;
+  background: lavender;
+  padding: 10px;
 }
 
 .headline {
-    padding: 5px 0;
+  padding: 5px 0;
 }
 
-@media screen and (min-width: 1024px) {
-    main {
-        display: flex;
-        flex-direction: row-reverse;
-    }
-    main > aside {
-        padding-right: 20px;
-        width: 25%;
-        box-sizing: border-box;
-    }
-    main > section {
-        width: 75%;
-    }
+.headline pre {
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.headline h5 {
+  margin: 0;
 }

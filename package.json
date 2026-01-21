@@ -1,11 +1,13 @@
 {
   "name": "blog",
   "version": "1.0.0",
+  "type": "module",
   "description": "Version 2 of my personal blog for http://zachrburke.com",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon -e js,ts,css,html,md --watch app --watch content --exec 'node --experimental-strip-types ./app/build.ts'",
     "start": "http-server ./dist",
-    "build": "node ./app/build.js"
+    "build": "node ./app/build.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
   },
   "homepage": "https://github.com/zach-binary/zachrburke-blog#readme",
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/showdown": "^2.0.6",
     "http-server": "^14.1.1"
   },
   "dependencies": {
