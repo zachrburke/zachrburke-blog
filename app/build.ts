@@ -10,6 +10,7 @@ import type { Cheerio } from 'cheerio';
 import autoprefixer from 'autoprefixer';
 import postcss from 'postcss';
 import type { AnyNode } from 'domhandler';
+import { highlightCodeBlocks } from './highlight.ts';
 
 const layout = readFileSync('./app/index.html').toString();
 const $ = load(layout);
@@ -23,9 +24,11 @@ const applyTo = (selector: string) => {
 const getPostWithBody = (post: Post) => {
   const markdown = readFileSync('./content/posts/' + post.filename).toString();
   const converter = new Converter();
+  const rawHtml = converter.makeHtml(markdown);
+  const highlightedHtml = highlightCodeBlocks(rawHtml, post.languages);
 
   return Object.assign({}, post, {
-    body: converter.makeHtml(markdown),
+    body: highlightedHtml,
     filename: post.filename.replace('.md', '.html'),
   });
 }

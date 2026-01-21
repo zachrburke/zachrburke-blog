@@ -44,6 +44,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
+  line-height: 1.5;
   padding: 20px;
   color: var(--text-color);
   background: var(--background);
@@ -85,21 +86,45 @@ hr {
   border-top: 1px solid lightgray;
 }
 
+.post img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
 .post pre {
   overflow: auto;
-  background: var(--code-background);
-  padding: 10px;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Shiki dual-theme support */
+.post pre.shiki {
+  background-color: var(--shiki-light-bg, #fff) !important;
+}
+
+.post pre.shiki span {
+  color: var(--shiki-light, inherit);
+}
+
+:root[data-theme="dark"] .post pre.shiki {
+  background-color: var(--shiki-dark-bg, #24292e) !important;
+}
+
+:root[data-theme="dark"] .post pre.shiki span {
+  color: var(--shiki-dark, inherit) !important;
 }
 
 .headline {
   padding: 5px 0;
+  margin-top: 0.250rem;
 }
 
 .headline pre {
   display: inline-block;
+  margin: 0;
   margin-left: 12px;
 }
 
 .headline h5 {
-  margin: 0;
+  margin: 0 0 0.250rem;
 }
