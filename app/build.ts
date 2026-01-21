@@ -42,7 +42,6 @@ mkdirSync('./dist/blog/');
 mkdirSync('./dist/static');
 
 const about = convertMdFile("./content/about.md");
-applyTo('header')(templates.header());
 applyTo('main')(templates.home(posts, about));
 writeFileSync('./dist/index.html', $.html());
 

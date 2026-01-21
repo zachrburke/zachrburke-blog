@@ -1,10 +1,53 @@
+:root {
+  --cream: #fdf6e3;
+  --charcoal: #1c1917;
+  --red-500: oklch(0.78 0.13 20);
+  --red-600: oklch(0.63 0.14 20);
+  --lavender-500: oklch(0.78 0.13 288);
+  --lavender-600: oklch(0.62 0.14 288);
+
+  /* Not sure what's going to be green yet */
+  --turquoise-500: oklch(0.75 0.13 180);
+  --turquoise-600: oklch(0.59 0.14 180);
+
+  --soft-red-text: var(--red-600);
+  --background: var(--cream);
+  --code-background: color-mix(in oklch, var(--background) 85%, black);
+  --text-color: var(--charcoal);
+}
+
+:root[data-theme="dark"] {
+  --soft-red-text: var(--red-500);
+  --background: var(--charcoal);
+  --code-background: color-mix(in oklch, var(--charcoal) 85%, white);
+  --text-color: var(--cream);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px 8px;
+  margin-left: 12px;
+  vertical-align: middle;
+  color: var(--soft-red-text);
+}
+
+:root[data-theme="light"] .light-icon { display: none; }
+:root[data-theme="light"] .dark-icon { display: inline; }
+:root[data-theme="dark"] .light-icon { display: inline; }
+:root[data-theme="dark"] .dark-icon { display: none; }
+
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   padding: 20px;
-  color: #494949;
+  color: var(--text-color);
+  background: var(--background);
   overflow-y: scroll;
-  --soft-red-text: #c04040;
 }
 
 html {
@@ -44,7 +87,7 @@ hr {
 
 .post pre {
   overflow: auto;
-  background: lavender;
+  background: var(--code-background);
   padding: 10px;
 }
 

@@ -11,7 +11,7 @@ export function post(post: Post) {
       <h1>${post.title}</h1>
       <small>${post.pub_date}</small>
     </div>
-    <article>${post.body}</article>
+    <article class="post">${post.body}</article>
 `;
 }
 
@@ -42,14 +42,5 @@ export function archive(posts: Post[]) {
       `)}
     </div>
 `;
-}
-
-export function header() {
-  return html`
-    <h3>
-      <a href='/'>Zach R. Burke</a>
-    </h3>
-    <hr/>
-  `;
 }
 
