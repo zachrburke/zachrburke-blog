@@ -7,6 +7,16 @@ export type Post = {
   languages?: string[],
 };
 
+export const recentPosts = [
+  {
+    title: "Revival",
+    slug: "revival",
+    filename: "revival.md",
+    pub_date: "January 22, 2026",
+    languages: [],
+  }
+] satisfies Post[]
+
 export default [
   {
     title: "Making embeds more generic with postMessage",

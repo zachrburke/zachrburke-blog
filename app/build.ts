@@ -1,7 +1,7 @@
 import showdown from 'showdown';
 const { Converter } = showdown;
 import * as templates from './templates.ts';
-import posts  from './posts.ts';
+import posts, { recentPosts }  from './posts.ts';
 import type { Post } from './posts.ts'
 import fse from 'fs-extra';
 const { readFileSync, removeSync, mkdirSync, writeFileSync, copySync } = fse;
@@ -45,10 +45,10 @@ mkdirSync('./dist/blog/');
 mkdirSync('./dist/static');
 
 const about = convertMdFile("./content/about.md");
-applyTo('main')(templates.home(posts, about));
+applyTo('main')(templates.home(posts, recentPosts, about));
 writeFileSync('./dist/index.html', $.html());
 
-posts.forEach(post => {
+posts.concat(recentPosts).forEach(post => {
   const postWithBody = getPostWithBody(post);
   console.log('Creating Page for', postWithBody.filename);
 
