@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nodemon -e js,ts,css,html,md --watch app --watch content --exec 'npm run build'",
     "start": "http-server ./dist",
-    "build": "node --experimental-strip-types ./app/build.ts"
+    "build": "node --experimental-strip-types ./app/build.ts",
+    "codegen": "graphql-codegen"
   },
   "repository": {
     "type": "git",
@@ -21,14 +22,21 @@
   },
   "homepage": "https://github.com/zach-binary/zachrburke-blog#readme",
   "devDependencies": {
+    "@graphql-codegen/cli": "^6.1.1",
+    "@graphql-codegen/typescript": "^5.0.7",
+    "@graphql-codegen/typescript-operations": "^5.0.7",
     "@types/fs-extra": "^11.0.4",
+    "@types/node": "^25.0.10",
     "@types/showdown": "^2.0.6",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@apollo/client": "^4.1.2",
     "autoprefixer": "^10.4.23",
     "cheerio": "^1.0.0-rc.2",
     "fs-extra": "^5.0.0",
+    "graphql": "^16.12.0",
     "postcss": "^8.5.6",
     "shiki": "^3.21.0",
     "showdown": "^1.7.1"

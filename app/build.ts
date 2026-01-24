@@ -11,6 +11,10 @@ import autoprefixer from 'autoprefixer';
 import postcss from 'postcss';
 import type { AnyNode } from 'domhandler';
 import { highlightCodeBlocks } from './highlight.ts';
+import { fetchCurrentlyReading } from './currentlyReading.ts';
+
+const currentlyReading = await fetchCurrentlyReading();
+console.log('Currently reading:', JSON.stringify(currentlyReading, null, 2));
 
 const layout = readFileSync('./app/index.html').toString();
 const $ = load(layout);
@@ -45,7 +49,7 @@ mkdirSync('./dist/blog/');
 mkdirSync('./dist/static');
 
 const about = convertMdFile("./content/about.md");
-applyTo('main')(templates.home(posts, recentPosts, about));
+applyTo('main')(templates.home(posts, recentPosts, about, currentlyReading));
 writeFileSync('./dist/index.html', $.html());
 
 posts.concat(recentPosts).forEach(post => {

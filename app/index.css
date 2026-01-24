@@ -128,3 +128,43 @@ hr {
 .headline h5 {
   margin: 0 0 0.250rem;
 }
+
+.currently-reading {
+  margin: 2rem 0;
+}
+
+.currently-reading .book {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.currently-reading .book img {
+  width: 80px;
+  border-radius: 4px;
+}
+
+.currently-reading .book-info {
+  flex: 1;
+}
+
+.currently-reading .book-title {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.currently-reading .progress {
+  background: var(--code-background);
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.currently-reading .progress-bar {
+  background: var(--soft-red-text);
+  height: 100%;
+  transition: width 0.3s ease;
+}
