@@ -9,6 +9,13 @@ export type Post = {
 
 export const recentPosts = [
   {
+    title: "Moving to Neovim and Neogit",
+    slug: "moving-to-nvim",
+    filename: "moving-to-nvim.md",
+    pub_date: "February 1, 2026",
+    languages: [],
+  },
+  {
     title: "Revival",
     slug: "revival",
     filename: "revival.md",
