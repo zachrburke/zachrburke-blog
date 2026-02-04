@@ -1,26 +1,43 @@
-import { createHighlighter } from 'shiki';
-import { load } from 'cheerio';
+import { createHighlighter } from "shiki";
+import { load } from "cheerio";
 
 const highlighter = await createHighlighter({
-  themes: ['everforest-light', 'everforest-dark'],
-  langs: ['javascript', 'typescript', 'clojure', 'lua', 'coffeescript', 'csharp', 'ruby', 'bash', 'json', 'html', 'css', 'swift', 'xml'],
+  themes: ["everforest-light", "everforest-dark"],
+  langs: [
+    "javascript",
+    "typescript",
+    "clojure",
+    "lua",
+    "coffeescript",
+    "csharp",
+    "ruby",
+    "bash",
+    "json",
+    "html",
+    "css",
+    "swift",
+    "xml",
+  ],
 });
 
 const langMap: Record<string, string> = {
-  'js': 'javascript',
-  'ts': 'typescript',
-  'cs': 'csharp',
+  js: "javascript",
+  ts: "typescript",
+  cs: "csharp",
 };
 
-export const highlightCodeBlocks = (html: string, defaultLanguages?: string[]): string => {
+export const highlightCodeBlocks = (
+  html: string,
+  defaultLanguages?: string[],
+): string => {
   const $doc = load(html);
 
-  $doc('pre code').each((_, el) => {
+  $doc("pre code").each((_, el) => {
     const $code = $doc(el);
     const $pre = $code.parent();
 
     // Extract language from class (e.g., "language-js" or "js")
-    const classAttr = $code.attr('class') || '';
+    const classAttr = $code.attr("class") || "";
     const langMatch = classAttr.match(/(?:language-)?(\w+)/);
     let lang = langMatch ? langMatch[1] : null;
 
@@ -40,10 +57,10 @@ export const highlightCodeBlocks = (html: string, defaultLanguages?: string[]): 
 
     try {
       const highlighted = highlighter.codeToHtml(code, {
-        lang: lang || 'text',
+        lang: lang || "text",
         themes: {
-          light: 'everforest-light',
-          dark: 'everforest-dark',
+          light: "everforest-light",
+          dark: "everforest-dark",
         },
       });
       $pre.replaceWith(highlighted);

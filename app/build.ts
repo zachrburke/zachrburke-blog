@@ -1,17 +1,17 @@
-import showdown from 'showdown';
-const { Converter } = showdown;
-import * as templates from './templates.ts';
-import posts, { recentPosts }  from './posts.ts';
-import type { Post } from './posts.ts'
 import fse from 'fs-extra';
-const { readFileSync, removeSync, mkdirSync, writeFileSync, copySync } = fse;
 import { load } from 'cheerio';
 import type { Cheerio } from 'cheerio';
 import autoprefixer from 'autoprefixer';
 import postcss from 'postcss';
 import type { AnyNode } from 'domhandler';
-import { highlightCodeBlocks } from './highlight.ts';
+
+import * as templates from './templates.ts';
+import posts, { recentPosts }  from './posts.ts';
 import { fetchCurrentlyReading } from './currentlyReading.ts';
+import renderPost, { renderAbout } from './renderer.ts';
+import feed from './feed.ts';
+
+const { readFileSync, removeSync, mkdirSync, writeFileSync, copySync } = fse;
 
 const currentlyReading = await fetchCurrentlyReading();
 console.log('Currently reading:', JSON.stringify(currentlyReading, null, 2));
@@ -25,35 +25,18 @@ const applyTo = (selector: string) => {
   };
 }
 
-const getPostWithBody = (post: Post) => {
-  const markdown = readFileSync('./content/posts/' + post.filename).toString();
-  const converter = new Converter();
-  const rawHtml = converter.makeHtml(markdown);
-  const highlightedHtml = highlightCodeBlocks(rawHtml, post.languages);
-
-  return Object.assign({}, post, {
-    body: highlightedHtml,
-    filename: post.filename.replace('.md', '.html'),
-  });
-}
-
-const convertMdFile = (path: string) => {
-  const markdown = readFileSync(path).toString();
-  return new Converter().makeHtml(markdown);
-}
-
 removeSync('./dist');
 
 mkdirSync('./dist/');
 mkdirSync('./dist/blog/');
 mkdirSync('./dist/static');
 
-const about = convertMdFile("./content/about.md");
+const about = renderAbout();
 applyTo('main')(templates.home(posts, recentPosts, about, currentlyReading));
 writeFileSync('./dist/index.html', $.html());
 
 posts.concat(recentPosts).forEach(post => {
-  const postWithBody = getPostWithBody(post);
+  const postWithBody = renderPost(post);
   console.log('Creating Page for', postWithBody.filename);
 
   applyTo('main')(templates.post(postWithBody));
@@ -71,3 +54,7 @@ postcss([ autoprefixer ]).process(css).then(function (result) {
   });
   writeFileSync('./dist/static/styles.css', result.css);
 });
+
+const feedXml = feed.rss2();
+writeFileSync('./dist/feed.xml', feedXml, 'utf8');
+console.log('Feed written to feed.xml');
