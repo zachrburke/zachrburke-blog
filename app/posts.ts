@@ -26,6 +26,13 @@ export const recentPosts = [
 
 export default [
   {
+    title: "Static ENI for Autoscale Groups",
+    slug: "static-eni-autoscale",
+    filename: "static-eni-for-autoscale-groups.md",
+    pub_date: "April 28, 2019",
+    languages: ['powershell']
+  },
+  {
     title: "Making embeds more generic with postMessage",
     slug: "postmessage-trick",
     filename: "postmessage-trick.md",
