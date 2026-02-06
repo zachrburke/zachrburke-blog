@@ -27,7 +27,7 @@ export const recentPosts = [
 export default [
   {
     title: "Static ENI for Autoscale Groups",
-    slug: "static-eni-autoscale",
+    slug: "static-eni-for-autoscale-groups",
     filename: "static-eni-for-autoscale-groups.md",
     pub_date: "April 28, 2019",
     languages: ['powershell']
