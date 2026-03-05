@@ -9,6 +9,13 @@ export type Post = {
 
 export const recentPosts = [
   {
+    title: "From the All-Stream to Baby-Streams",
+    slug: "all-streams-to-baby-streams",
+    filename: "all-streams-to-baby-streams.md",
+    pub_date: "March 4, 2026",
+    languages: ['c#', 'sql']
+  },
+  {
     title: "Moving to Neovim and Neogit",
     slug: "moving-to-nvim",
     filename: "moving-to-nvim.md",
