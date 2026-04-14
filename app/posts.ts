@@ -9,6 +9,13 @@ export type Post = {
 
 export const recentPosts = [
   {
+    title: "Being Married",
+    slug: "being-married",
+    filename: "being-married.md",
+    pub_date: "April 13th, 2026",
+    languages: [],
+  },
+  {
     title: "From the All-Stream to Baby-Streams",
     slug: "all-streams-to-baby-streams",
     filename: "all-streams-to-baby-streams.md",
