@@ -17,8 +17,8 @@ weekends hiking, possibly even trail running, leaving all of our friends in awe
 as we stay fit and brag about the number of miles and steps we get each day.
 We could have a catio where the cats would paw desperately for attention from
 passing neighbors.  We could take a bus to Union Station and check out the
-latest hip new coffee shop in downtown Denver, or walk down ___ street and grab
-some new antiques to decorate the house.  Attend book clubs and meet new
+latest hip new coffee shop in downtown Denver, or walk down Sante Fe Drive and
+grab some new antiques to decorate the house.  Attend book clubs and meet new
 friends.
 
 However, this neighborhood in particular did not inspire much confidence for
