@@ -2,7 +2,6 @@ import fse from 'fs-extra';
 import type { Post } from './posts.ts';
 import showdown from 'showdown';
 import { highlightCodeBlocks } from './highlight.ts';
-import { load } from 'cheerio';
 
 const { Converter } = showdown;
 const _converter = new Converter();
