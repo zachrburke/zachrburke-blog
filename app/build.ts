@@ -11,6 +11,9 @@ import { fetchCurrentlyReading } from "./currentlyReading.ts";
 import renderPost, { renderAbout } from "./renderer.ts";
 import feed from "./feed.ts";
 import { logger } from "./diagnostics.ts";
+import { copyFileSync, cpSync } from "node:fs";
+
+const html = String.raw;
 
 const { readFileSync, removeSync, mkdirSync, writeFileSync, copySync } = fse;
 
@@ -42,6 +45,15 @@ posts.concat(recentPosts).forEach((post) => {
 
   applyTo("main")(templates.post(postWithBody));
   $("title").text(post.title);
+  if (postWithBody.at_uri != null) {
+    logger.info("Adding at_uri link for %s", postWithBody.filename)
+    $("head").append(html`
+      <link
+        rel="site.standard.document"
+        href="${postWithBody.at_uri}"
+      />`
+    );
+  }
   writeFileSync("./dist/blog/" + postWithBody.filename, $.html());
 });
 
@@ -61,3 +73,6 @@ postcss([autoprefixer])
 const feedXml = feed.rss2();
 writeFileSync("./dist/feed.xml", feedXml, "utf8");
 logger.info("Feed written to feed.xml");
+
+cpSync("app/.well-known/", "dist/.well-known/", { recursive: true });
+logger.info("Copied .well-known directory");

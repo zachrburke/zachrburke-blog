@@ -5,9 +5,18 @@ export type Post = {
   filename: string,
   pub_date: string,
   languages?: string[],
+  at_uri?: string,
 };
 
 export const recentPosts = [
+  {
+    title: "Trying out Standard.site",
+    slug: "standard-site",
+    filename: "standard-site.md",
+    pub_date: "June 6th, 2026",
+    languages: [],
+    at_uri: "at://did:plc:n52yhachhq6jr2ascfvnwqcf/site.standard.document/3mnoecm4saj2b",
+  },
   {
     title: "Being Married",
     slug: "being-married",
